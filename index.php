@@ -19,7 +19,7 @@
 	<div class="row text-center">
 		<div class="col-lg-2 col-md-2 col-12">
 			<h5 class="font-weight-bold pt-0">All over India</h5>
-			<h3 class="count pb-2" id="AOI"><img src="../image/INDIA.jpg" id="India"></h3>
+			<h3 class="count pb-2" id="AOI"><img src="INDIA.jpg" id="India"></h3>
 		</div>
 
 		<div class="col-lg-2 col-md-2 col-12">
