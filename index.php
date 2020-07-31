@@ -50,11 +50,9 @@
 </div>
 
 <!--SEARCH BOX-->
-<div class="text-center">
+<div class="text-center" id="myInputSticky">
 		<!--Search box-->
 		<input class=" text-center mb-3 pl-5 pr-5 pt-2 pb-2 search-box" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for states.." title="Search here">
-		<p>[Please avoid spaces after name]</p>
-		<div class="scrollLeft"><p>Scroll left-></p></div>
 </div>
 <!--TABLE HEADING-->
 <div class="text-center table-responsive">

@@ -22,14 +22,6 @@ width: 25px;
 	text-decoration: underline;
 }
 
-@media only screen and (min-width: 480px){
-.scrollLeft{
-
-		display:none;
-
-	}
-}
-
 #btn{
 	border:0px;
 	background-color:#3E444A!important;
@@ -48,5 +40,9 @@ width: 25px;
 	position:sticky!important;
 	top:0px;
 	z-index:9999;
-	}
+}
+#myInputSticky{
+	position:sticky!important;
+	top:90px!important;
+}
 </style>
