@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head><!--https://api.covid19india.org/data.json-->
-	<title>CovidIndia</title>
+	<title>Covid19 Live</title>
 	<?php include 'links.php'; ?>
  	<?php include 'style.php'; ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body onload="fetch();">
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex justify-content-center">
+<nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-center" id="sticky">
  <h1 class="navbar-brand line" href="#">INDIA'S COVID-19 LIVE STATS</h1>
- <h6 style="color:#fff;">Developed by findfardin</h6>
+ <h6 style="color:#000;" id="findfardin">Developed by findfardin</h6>
+ <button id="btn" class="mb-2 ml-5" onclick="modeChange();">Night mode</button>
 </nav>
-<section class=" corona-update container-fluid">
+<section class=" corona-update container-fluid" id="mainsec">
 	<div class="mb-4">
 		<h2 class="text-center text-uppercase pt-3 pb-0">covid-19 live updates of India</h2>
 	</div>
@@ -51,13 +52,13 @@
 <!--SEARCH BOX-->
 <div class="text-center">
 		<!--Search box-->
-		<input class=" text-center mb-3 pl-5 pr-5 pt-2 pb-2 search-box" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for countries.." title="Search here">
+		<input class=" text-center mb-3 pl-5 pr-5 pt-2 pb-2 search-box" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for states.." title="Search here">
 		<p>[Please avoid spaces after name]</p>
 		<div class="scrollLeft"><p>Scroll left-></p></div>
 </div>
 <!--TABLE HEADING-->
 <div class="text-center table-responsive">
-	<table class="table table-bordered table-striped table-dark" id="corona_table">
+	<table class="table table-bordered table-striped table-light" id="corona_table">
 		<tr>
 			
 			<th>State</th>
@@ -88,8 +89,8 @@
     curl_close ($ch); 
     $json=json_decode($content,true);//decode it using json
 	$state=$json['statewise'];//state data -->
-	// echo "<pre>";
- //    print_r($state);
+	//echo "<pre>";
+    //print_r($state);
 
 	 ?>
 <script type="text/javascript">
@@ -151,7 +152,63 @@ function myFunction() {
     }       
   }
 }	
+//----------------------------------Day Night mode------------------------------------------
+function modeChange(){
+	var webMode = document.querySelector('#btn').textContent;
+	if(webMode=="Night mode"){
 
+	 	document.querySelector('#corona_table').classList.remove("table-light");
+		document.querySelector('#corona_table').classList.add("table-dark");
+		document.querySelector('#sticky').classList.remove("navbar-light");
+		document.querySelector('#sticky').classList.add("navbar-dark");
+		document.querySelector('#sticky').classList.remove("bg-light");
+		document.querySelector('#sticky').classList.add("bg-dark");
+		document.querySelector('#findfardin').style="color:#fff;"
+		document.body.style="background-color:#3E444A"
+		document.querySelector('#mainsec').style="color:#fff;"
+		document.querySelector('#contact').style="color:#fff;"
+		document.querySelector('#btn').textContent="Day mode"
+		document.querySelector('#myInput').style="background-color:#343A40;border:2px solid #fff"
+
+	}else{
+
+		document.querySelector('#corona_table').classList.remove("table-dark");
+		document.querySelector('#corona_table').classList.add("table-light");
+		document.querySelector('#sticky').classList.remove("navbar-dark");
+		document.querySelector('#sticky').classList.add("navbar-light");
+		document.querySelector('#sticky').classList.remove("bg-dark");
+		document.querySelector('#sticky').classList.add("bg-light");
+		document.querySelector('#findfardin').style="color:#3E444A;"
+		document.body.style="background-color:#fff"
+		document.querySelector('#mainsec').style="color:#3E444A;"
+		document.querySelector('#contact').style="color:#3E444A;"
+		document.querySelector('#btn').textContent="Night mode"
+		document.querySelector('#myInput').style="background-color:#fff"
+
+
+	}
+
+
+}
 </script>
+<div>
+	<h5 class="text-center">
+		<p style="text-decoration: underline;" id="contact">contact me </p>
+		<a href="mailto:fardinkhan2k1@gmail.com">fardinkhan2k1@gmail.com</a></h5>
+</div>
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-168057427-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+        gtag('config', 'UA-168057427-1');
+        </script>
+        
 </body>
 </html>
